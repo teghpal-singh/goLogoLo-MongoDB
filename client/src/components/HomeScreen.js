@@ -10,6 +10,7 @@ const GET_LOGOS = gql`
       _id
       text
       lastUpdate
+      backgroundColor
     }
   }
 `;
