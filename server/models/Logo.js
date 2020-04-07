@@ -6,6 +6,7 @@ var LogoSchema = new mongoose.Schema({
   color: String,
   fontSize: { type: Number, min: 2, max: 144 },
   lastUpdate: { type: Date, default: Date.now },
+  backgroundColor: String,
 });
 
 module.exports = mongoose.model('Logo', LogoSchema);
