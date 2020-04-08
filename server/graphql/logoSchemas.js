@@ -37,6 +37,9 @@ var logoType = new GraphQLObjectType({
             borderColor: {
                 type: GraphQLString
             },
+            borderRadius: {
+                type: GraphQLInt
+            },
         }
     }
 });
@@ -100,6 +103,9 @@ var mutation = new GraphQLObjectType({
                     borderColor: {
                         type: new GraphQLNonNull(GraphQLString)
                     },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                 },
                 resolve: function (root, params) {
                     const logoModel = new LogoModel(params);
@@ -135,9 +141,12 @@ var mutation = new GraphQLObjectType({
                     borderColor: {
                         type: new GraphQLNonNull(GraphQLString)
                     },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                 },
                 resolve(root, params) {
-                    return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, lastUpdate: new Date(), backgroundColor: params.backgroundColor, borderWidth: params.borderWidth, borderColor: params.borderColor }, function (err) {
+                    return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, lastUpdate: new Date(), backgroundColor: params.backgroundColor, borderWidth: params.borderWidth, borderColor: params.borderColor, borderRadius: params.borderRadius }, function (err) {
                         if (err) return next(err);
                     });
                 }

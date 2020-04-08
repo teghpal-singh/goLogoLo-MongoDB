@@ -10,14 +10,16 @@ const ADD_LOGO = gql`
         $fontSize: Int!,
         $backgroundColor: String!,
         $borderWidth: Int!,
-        $borderColor: String!) {
+        $borderColor: String!,
+        $borderRadius: Int!) {
         addLogo(
             text: $text,
             color: $color,
             fontSize: $fontSize,
             backgroundColor: $backgroundColor,
             borderWidth: $borderWidth,
-            borderColor: $borderColor) {
+            borderColor: $borderColor,
+            borderRadius: $borderRadius) {
             _id
         }
     }
@@ -26,7 +28,7 @@ const ADD_LOGO = gql`
 class CreateLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize, backgroundColor, borderWidth, borderColor;
+        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push('/')}>
                 {(addLogo, { loading, error }) => (
@@ -41,13 +43,14 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
-                                    addLogo({ variables: { text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value } });
+                                    addLogo({ variables: { text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value) } });
                                     text.value = "";
                                     color.value = "";
                                     fontSize.value = "";
                                     backgroundColor.value = "";
                                     borderWidth.value = "";
                                     borderColor.value = "";
+                                    borderRadius.value = "";
                                 }}>
                                     <div className="form-group">
                                         <label htmlFor="text">Text:</label>
@@ -84,6 +87,12 @@ class CreateLogoScreen extends Component {
                                         <input type="color" className="form-control" name="borderColor" ref={node => {
                                             borderColor = node;
                                         }} placeholder="Border Color" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="borderRadius">Border Radius:</label>
+                                        <input type="number" className="form-control" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                            borderRadius = node;
+                                        }} placeholder="Border Radius" />
                                     </div>
                                     <button type="submit" className="btn btn-success">Submit</button>
                                 </form>

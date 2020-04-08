@@ -13,6 +13,7 @@ const GET_LOGOS = gql`
       backgroundColor
       borderWidth
       borderColor
+      borderRadius
     }
   }
 `;

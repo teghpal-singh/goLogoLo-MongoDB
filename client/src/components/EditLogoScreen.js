@@ -13,6 +13,7 @@ const GET_LOGO = gql`
             backgroundColor
             borderWidth
             borderColor
+            borderRadius
         }
     }
 `;
@@ -25,7 +26,8 @@ const UPDATE_LOGO = gql`
         $fontSize: Int!,
         $backgroundColor: String!,
         $borderWidth: Int!,
-        $borderColor: String!) {
+        $borderColor: String!,
+        $borderRadius: Int!) {
             updateLogo(
                 id: $id,
                 text: $text,
@@ -33,7 +35,8 @@ const UPDATE_LOGO = gql`
                 fontSize: $fontSize,
                 backgroundColor: $backgroundColor,
                 borderWidth: $borderWidth,
-                borderColor: $borderColor) {
+                borderColor: $borderColor,
+                borderRadius: $borderRadius) {
                     lastUpdate
                 }
         }
@@ -42,7 +45,7 @@ const UPDATE_LOGO = gql`
 class EditLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize, backgroundColor, borderWidth, borderColor;
+        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -63,13 +66,14 @@ class EditLogoScreen extends Component {
                                         <div className="panel-body">                                            
                                             <form onSubmit={e => {
                                                 e.preventDefault();
-                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value } });
+                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius) } });
                                                 text.value = "";
                                                 color.value = "";
                                                 fontSize.value = "";
                                                 backgroundColor.value = "";
                                                 borderWidth.value = "";
                                                 borderColor.value = "";
+                                                borderRadius.value = "";
                                             }}>
                                                 <div className="form-group">
                                                     <label htmlFor="text">Text:</label>
@@ -106,6 +110,12 @@ class EditLogoScreen extends Component {
                                                     <input type="color" className="form-control" name="borderColor" ref={node => {
                                                         borderColor = node;
                                                     }} placeholder="Border Color" defaultValue={data.logo.borderColor} />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="borderRadius">Border Radius:</label>
+                                                    <input type="number" className="form-control" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                        borderRadius = node;
+                                                    }} placeholder="Border Radius" defaultValue={data.logo.borderRadius} />
                                                 </div>
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>
