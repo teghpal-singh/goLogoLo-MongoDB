@@ -13,6 +13,7 @@ const GET_LOGO = gql`
             fontSize
             lastUpdate
             backgroundColor
+            borderWidth
         }
     }
 `;
@@ -53,6 +54,8 @@ class ViewLogoScreen extends Component {
                                         <dd>{data.logo.fontSize}</dd>
                                         <dt>Background Color:</dt>
                                         <dd>{data.logo.backgroundColor}</dd>
+                                        <dt>Border Thickness:</dt>
+                                        <dd>{data.logo.borderWidth}</dd>
                                         <dt>Last Updated:</dt>
                                         <dd>{data.logo.lastUpdate}</dd>
                                     </dl>

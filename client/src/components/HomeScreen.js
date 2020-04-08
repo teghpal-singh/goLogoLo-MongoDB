@@ -11,6 +11,7 @@ const GET_LOGOS = gql`
       text
       lastUpdate
       backgroundColor
+      borderWidth
     }
   }
 `;
