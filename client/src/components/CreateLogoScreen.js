@@ -56,53 +56,69 @@ class CreateLogoScreen extends Component {
                                     padding.value = "";
                                 }}>
                                     <form class="form-horizontal">
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="text">Text:</label>
-                                        <input type="text" className="form-control" name="text" ref={node => {
-                                            text = node;
-                                        }} placeholder="Text" />
+                                    <div className="form-group row">
+                                            <label htmlFor="text" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Text:</label>
+                                            <div className="col-9">
+                                                <input type="text" className="form-control form-control-lg" name="text" ref={node => {
+                                                    text = node;
+                                                }} placeholder="Text" />
+                                            </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="color">Color:</label>
-                                        <input type="color" className="form-control" name="color" ref={node => {
-                                            color = node;
-                                        }} placeholder="Color" />
+                                    <div className="form-group row">
+                                        <label htmlFor="color" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Color:</label>
+                                        <div className="col-3">
+                                            <input type="color" className="form-control form-control-lg" name="color" ref={node => {
+                                                color = node;
+                                            }} placeholder="Color" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="fontSize">Font Size:</label>
-                                        <input type="number" className="form-control" name="fontSize" min="2" oninput="validity.valid || (value='');" ref={node => {
-                                            fontSize = node;
-                                        }} placeholder="Font Size" />
+                                    <div className="form-group row">
+                                        <label htmlFor="fontSize" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Font Size:</label>
+                                        <div className="col-9">
+                                            <input type="number" className="form-control form-control-lg" name="fontSize" min="2" oninput="validity.valid || (value='');" ref={node => {
+                                                fontSize = node;
+                                            }} placeholder="Font Size" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="backgroundColor">Background Color:</label>
-                                        <input type="color" className="form-control" name="backgroundColor" ref={node => {
-                                            backgroundColor = node;
-                                        }} placeholder="Background Color" />
+                                    <div className="form-group row">
+                                        <label htmlFor="backgroundColor" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Background Color:</label>
+                                        <div className="col-3">
+                                            <input type="color" className="form-control form-control-lg" name="backgroundColor" ref={node => {
+                                                backgroundColor = node;
+                                            }} placeholder="Background Color" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="borderWidth">Border Thickness:</label>
-                                        <input type="number" className="form-control" name="borderWidth" min="0" oninput="validity.valid || (value='');" ref={node => {
-                                            borderWidth = node;
-                                        }} placeholder="Border Thickness" />
+                                    <div className="form-group row">
+                                        <label htmlFor="borderWidth" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Thickness:</label>
+                                        <div className="col-9">
+                                            <input type="number" className="form-control form-control-lg" name="borderWidth" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                borderWidth = node;
+                                            }} placeholder="Border Thickness" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="borderColor">Border Color:</label>
-                                        <input type="color" className="form-control" name="borderColor" ref={node => {
-                                            borderColor = node;
-                                        }} placeholder="Border Color" />
+                                    <div className="form-group row">
+                                        <label htmlFor="borderColor" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Color:</label>
+                                        <div className="col-3">
+                                            <input type="color" className="form-control form-control-lg" name="borderColor" ref={node => {
+                                                borderColor = node;
+                                            }} placeholder="Border Color" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="borderRadius">Border Radius:</label>
-                                        <input type="number" className="form-control" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
-                                            borderRadius = node;
-                                        }} placeholder="Border Radius" />
+                                    <div className="form-group row">
+                                        <label htmlFor="borderRadius" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Radius:</label>
+                                        <div className="col-9">
+                                            <input type="number" className="form-control form-control-lg" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                borderRadius = node;
+                                            }} placeholder="Border Radius" />
+                                        </div>
                                     </div>
-                                    <div className="form-group form-group-lg">
-                                        <label htmlFor="padding">Padding:</label>
-                                        <input type="number" className="form-control" name="pading" min="0" oninput="validity.valid || (value='');" ref={node => {
-                                            padding = node;
-                                        }} placeholder="Padding" />
+                                    <div className="form-group row">
+                                        <label htmlFor="padding" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Padding:</label>
+                                        <div className="col-9">
+                                            <input type="number" className="form-control form-control-lg" name="pading" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                padding = node;
+                                            }} placeholder="Padding" />
+                                        </div>
                                     </div>
                                     </form>
                                     <button type="submit" className="btn btn-success">Submit</button>
