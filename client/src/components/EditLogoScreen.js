@@ -15,6 +15,7 @@ const GET_LOGO = gql`
             borderColor
             borderRadius
             padding
+            margin
         }
     }
 `;
@@ -29,7 +30,8 @@ const UPDATE_LOGO = gql`
         $borderWidth: Int!,
         $borderColor: String!,
         $borderRadius: Int!,
-        $padding: Int!) {
+        $padding: Int!,
+        $margin: Int!) {
             updateLogo(
                 id: $id,
                 text: $text,
@@ -39,7 +41,8 @@ const UPDATE_LOGO = gql`
                 borderWidth: $borderWidth,
                 borderColor: $borderColor,
                 borderRadius: $borderRadius,
-                padding: $padding) {
+                padding: $padding,
+                margin: $margin) {
                     lastUpdate
                 }
         }
@@ -48,7 +51,7 @@ const UPDATE_LOGO = gql`
 class EditLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding;
+        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding, margin;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -69,7 +72,7 @@ class EditLogoScreen extends Component {
                                         <div className="panel-body">                                            
                                             <form onSubmit={e => {
                                                 e.preventDefault();
-                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value) } });
+                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value), margin: parseInt(margin.value) } });
                                                 text.value = "";
                                                 color.value = "";
                                                 fontSize.value = "";
@@ -78,6 +81,7 @@ class EditLogoScreen extends Component {
                                                 borderColor.value = "";
                                                 borderRadius.value = "";
                                                 padding.value = "";
+                                                margin.value = "";
                                             }}>
                                                 <div className="form-group">
                                                     <label htmlFor="text">Text:</label>
@@ -126,6 +130,12 @@ class EditLogoScreen extends Component {
                                                     <input type="number" className="form-control" name="padding" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                         padding = node;
                                                     }} placeholder="Padding" defaultValue={data.logo.padding} />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="borderRadius">Margin:</label>
+                                                    <input type="number" className="form-control" name="margin" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                        margin = node;
+                                                    }} placeholder="Margin" defaultValue={data.logo.margin} />
                                                 </div>
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>

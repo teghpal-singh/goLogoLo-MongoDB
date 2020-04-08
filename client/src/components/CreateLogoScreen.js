@@ -12,7 +12,8 @@ const ADD_LOGO = gql`
         $borderWidth: Int!,
         $borderColor: String!,
         $borderRadius: Int!,
-        $padding: Int!) {
+        $padding: Int!,
+        $margin: Int!) {
         addLogo(
             text: $text,
             color: $color,
@@ -21,7 +22,8 @@ const ADD_LOGO = gql`
             borderWidth: $borderWidth,
             borderColor: $borderColor,
             borderRadius: $borderRadius,
-            padding: $padding) {
+            padding: $padding,
+            margin: $margin) {
             _id
         }
     }
@@ -30,7 +32,7 @@ const ADD_LOGO = gql`
 class CreateLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding;
+        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding, margin;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push('/')}>
                 {(addLogo, { loading, error }) => (
@@ -45,7 +47,7 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
-                                    addLogo({ variables: { text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value) } });
+                                    addLogo({ variables: { text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value), margin: parseInt(margin.value) } });
                                     text.value = "";
                                     color.value = "";
                                     fontSize.value = "";
@@ -54,6 +56,7 @@ class CreateLogoScreen extends Component {
                                     borderColor.value = "";
                                     borderRadius.value = "";
                                     padding.value = "";
+                                    margin.value = "";
                                 }}>
                                     <form class="form-horizontal">
                                     <div className="form-group row">
@@ -75,9 +78,9 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="fontSize" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Font Size:</label>
                                         <div className="col-9">
-                                            <input type="number" className="form-control form-control-lg" name="fontSize" min="2" oninput="validity.valid || (value='');" ref={node => {
+                                            <input type="number" className="form-control form-control-lg" name="fontSize" min="2" max="100" onInput="validity.valid || (value='');" ref={node => {
                                                 fontSize = node;
-                                            }} placeholder="Font Size" />
+                                            }} placeholder="Font Size"/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
@@ -120,8 +123,16 @@ class CreateLogoScreen extends Component {
                                             }} placeholder="Padding" />
                                         </div>
                                     </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="margin" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Margin:</label>
+                                        <div className="col-9">
+                                            <input type="number" className="form-control form-control-lg" name="margin" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                margin = node;
+                                            }} placeholder="Margin" />
+                                        </div>
+                                    </div>
                                     </form>
-                                    <button type="submit" className="btn btn-success">Submit</button>
+                                    <button type="submit" className="btn btn-success" onClick="validate()">Submit</button>
                                 </form>
                                 {loading && <p>Loading...</p>}
                                 {error && <p>Error :( Please try again</p>}

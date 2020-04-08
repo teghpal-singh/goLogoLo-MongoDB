@@ -43,6 +43,9 @@ var logoType = new GraphQLObjectType({
             padding: {
                 type: GraphQLInt
             },
+            margin: {
+                type: GraphQLInt
+            },
         }
     }
 });
@@ -112,6 +115,9 @@ var mutation = new GraphQLObjectType({
                     padding: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
+                    margin: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                 },
                 resolve: function (root, params) {
                     const logoModel = new LogoModel(params);
@@ -153,9 +159,12 @@ var mutation = new GraphQLObjectType({
                     padding: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
+                    margin: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                 },
                 resolve(root, params) {
-                    return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, lastUpdate: new Date(), backgroundColor: params.backgroundColor, borderWidth: params.borderWidth, borderColor: params.borderColor, borderRadius: params.borderRadius, padding: params.padding }, function (err) {
+                    return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, lastUpdate: new Date(), backgroundColor: params.backgroundColor, borderWidth: params.borderWidth, borderColor: params.borderColor, borderRadius: params.borderRadius, padding: params.padding, margin: params.margin }, function (err) {
                         if (err) return next(err);
                     });
                 }
