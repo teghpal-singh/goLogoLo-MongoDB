@@ -14,6 +14,7 @@ const GET_LOGO = gql`
             borderWidth
             borderColor
             borderRadius
+            padding
         }
     }
 `;
@@ -27,7 +28,8 @@ const UPDATE_LOGO = gql`
         $backgroundColor: String!,
         $borderWidth: Int!,
         $borderColor: String!,
-        $borderRadius: Int!) {
+        $borderRadius: Int!,
+        $padding: Int!) {
             updateLogo(
                 id: $id,
                 text: $text,
@@ -36,7 +38,8 @@ const UPDATE_LOGO = gql`
                 backgroundColor: $backgroundColor,
                 borderWidth: $borderWidth,
                 borderColor: $borderColor,
-                borderRadius: $borderRadius) {
+                borderRadius: $borderRadius,
+                padding: $padding) {
                     lastUpdate
                 }
         }
@@ -45,7 +48,7 @@ const UPDATE_LOGO = gql`
 class EditLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius;
+        let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -66,7 +69,7 @@ class EditLogoScreen extends Component {
                                         <div className="panel-body">                                            
                                             <form onSubmit={e => {
                                                 e.preventDefault();
-                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius) } });
+                                                updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value) } });
                                                 text.value = "";
                                                 color.value = "";
                                                 fontSize.value = "";
@@ -74,6 +77,7 @@ class EditLogoScreen extends Component {
                                                 borderWidth.value = "";
                                                 borderColor.value = "";
                                                 borderRadius.value = "";
+                                                padding.value = "";
                                             }}>
                                                 <div className="form-group">
                                                     <label htmlFor="text">Text:</label>
@@ -116,6 +120,12 @@ class EditLogoScreen extends Component {
                                                     <input type="number" className="form-control" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                         borderRadius = node;
                                                     }} placeholder="Border Radius" defaultValue={data.logo.borderRadius} />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="borderRadius">Padding:</label>
+                                                    <input type="number" className="form-control" name="padding" min="0" oninput="validity.valid || (value='');" ref={node => {
+                                                        padding = node;
+                                                    }} placeholder="Padding" defaultValue={data.logo.padding} />
                                                 </div>
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>
