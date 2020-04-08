@@ -46,7 +46,7 @@ class EditLogoScreen extends Component {
                     return (
                         <Mutation mutation={UPDATE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push(`/`)}>
                             {(updateLogo, { loading, error }) => (
-                                <div className="container">
+                                <div className="customizeContainer">
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
                                             <h4><Link to="/">Home</Link></h4>
@@ -77,7 +77,7 @@ class EditLogoScreen extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="fontSize">Font Size:</label>
-                                                    <input type="text" className="form-control" name="fontSize" ref={node => {
+                                                    <input type="number" className="form-control" name="fontSize" min="2" oninput="validity.valid || (value='');" ref={node => {
                                                         fontSize = node;
                                                     }} placeholder="Font Size" defaultValue={data.logo.fontSize} />
                                                 </div>

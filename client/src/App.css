@@ -18,7 +18,7 @@ body {
   font-family: 'Lexend Exa';
 }
 
-#home_banner_container {
+/* #home_banner_container {
   background-image: linear-gradient(to bottom,         
   #b8b808, #636723);
   color: white;
@@ -30,4 +30,29 @@ body {
   padding-left: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
+} */
+
+#home_banner_container {
+  background-image: linear-gradient(195deg,         
+  #26a69a, #e1bcff);
+  color: white;
+  font-size: 48pt;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.customizeContainer {
+  width: max-content;
+  position: relative;
+  max-width: 28%; 
+  background-color: purple;
+}
+
+.form-group {
+  width: 50%;
 }
