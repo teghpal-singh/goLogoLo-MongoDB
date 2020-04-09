@@ -33,9 +33,32 @@ class CreateLogoScreen extends Component {
 
     render() {
         let text, color, fontSize, backgroundColor, borderWidth, borderColor, borderRadius, padding, margin;
+        const styles = {
+            container: {
+                text: "Default Logo",
+                color: "black",
+                fontSize: "14pt",
+                backgroundColor: "white",
+                borderStyle: "solid",
+                borderWidth: "10pt",
+                borderColor: "black",
+                borderRadius: "3pt",
+                padding: "3pt",
+                margin: "3pt",
+                // overflow: "auto",
+                position: "relative",
+                width: "max-content",
+                maxWidth: "min-content",
+                minWidth: "min-content",
+                textAlign: "center",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+            }
+        }
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push('/')}>
                 {(addLogo, { loading, error }) => (
+                    <div>
                     <div className="customizeContainer">
                         <div className="panel panel-default">
                             <div className="panel-heading">
@@ -140,6 +163,10 @@ class CreateLogoScreen extends Component {
                                 {error && <p>Error :( Please try again</p>}
                             </div>
                         </div>
+                    </div>
+                    <div className="col s8" style = {{overflow : "auto"}}>
+                                <div style={ styles.container }>Default Logo</div>
+                            </div>
                     </div>
                 )}
             </Mutation>
