@@ -78,7 +78,7 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="fontSize" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Font Size:</label>
                                         <div className="col-9">
-                                            <input type="number" className="form-control form-control-lg" name="fontSize" min="2" max="100" onInput="validity.valid || (value='');" ref={node => {
+                                            <input type="number" className="form-control" name="fontSize" min="2" max="100" onInput="validity.valid || (value='');" ref={node => {
                                                 fontSize = node;
                                             }} placeholder="Font Size"/>
                                         </div>
@@ -132,7 +132,9 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     </form>
-                                    <button type="submit" className="btn btn-success" onClick="validate()">Submit</button>
+                                    <div style={{textAlign: "center"}}>
+                                    <button type="submit" className="btn btn-primary btn-lg" style={{backgroundColor: "#26a69a"}} onClick="validate()">SUBMIT</button>
+                                    </div>
                                 </form>
                                 {loading && <p>Loading...</p>}
                                 {error && <p>Error :( Please try again</p>}
