@@ -138,7 +138,7 @@ class CreateLogoScreen extends Component {
                                 }}>
                                     <form class="form-horizontal">
                                     <div className="form-group row">
-                                            <label htmlFor="text" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Text:</label>
+                                            <label htmlFor="text" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Text:</label>
                                             <div className="col-9">
                                                 <input type="text" className="form-control form-control-lg" name="text" ref={node => {
                                                     text = node;
@@ -146,7 +146,7 @@ class CreateLogoScreen extends Component {
                                             </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="color" class="col-6 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Color:</label>
+                                        <label htmlFor="color" class="col-6 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Color:</label>
                                         <div className="col-4">
                                             <input type="color" className="form-control form-control-lg" name="color" ref={node => {
                                                 color = node;
@@ -154,7 +154,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fontSize" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Font Size:</label>
+                                        <label htmlFor="fontSize" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Font Size:</label>
                                         <div className="col-9">
                                             <input type="range" className="form-control form-control-lg" name="fontSize" min="10" max="100" onInput="validity.valid || (value='');" ref={node => {
                                                 fontSize = node;
@@ -162,7 +162,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="backgroundColor" class="col-6 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Background Color:</label>
+                                        <label htmlFor="backgroundColor" class="col-6 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Background Color:</label>
                                         <div className="col-4">
                                             <input type="color" className="form-control form-control-lg" name="backgroundColor" ref={node => {
                                                 backgroundColor = node;
@@ -170,7 +170,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="borderWidth" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Thickness:</label>
+                                        <label htmlFor="borderWidth" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Border Thickness:</label>
                                         <div className="col-9">
                                             <input type="range" className="form-control form-control-lg" name="borderWidth" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                 borderWidth = node;
@@ -178,7 +178,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="borderColor" class="col-6 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Color:</label>
+                                        <label htmlFor="borderColor" class="col-6 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Border Color:</label>
                                         <div className="col-4">
                                             <input type="color" className="form-control form-control-lg" name="borderColor" ref={node => {
                                                 borderColor = node;
@@ -186,7 +186,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="borderRadius" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Border Radius:</label>
+                                        <label htmlFor="borderRadius" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Border Radius:</label>
                                         <div className="col-9">
                                             <input type="range" className="form-control form-control-lg" name="borderRadius" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                 borderRadius = node;
@@ -194,7 +194,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="padding" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Padding:</label>
+                                        <label htmlFor="padding" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Padding:</label>
                                         <div className="col-9">
                                             <input type="range" className="form-control form-control-lg" name="pading" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                 padding = node;
@@ -202,7 +202,7 @@ class CreateLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="margin" class="col-3 col-form-label" style={{fontSize: "14px", fontFamily: "Arial"}}>Margin:</label>
+                                        <label htmlFor="margin" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Margin:</label>
                                         <div className="col-9">
                                             <input type="range" className="form-control form-control-lg" name="margin" min="0" oninput="validity.valid || (value='');" ref={node => {
                                                 margin = node;

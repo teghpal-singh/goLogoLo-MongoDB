@@ -39,17 +39,40 @@ class ViewLogoScreen extends Component {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
 
+                    const styles = {
+                        container: {
+                            text: data.logo.text,
+                            color: data.logo.color,
+                            fontSize: data.logo.fontSize,
+                            backgroundColor: data.logo.backgroundColor,
+                            borderStyle: "solid",
+                            borderWidth: data.logo.borderWidth,
+                            borderColor: data.logo.borderColor,
+                            borderRadius: data.logo.borderRadius,
+                            padding: data.logo.padding,
+                            margin: data.logo.margin,
+                            position: "absolute",
+                            width: "max-content",
+                            maxWidth: "min-content",
+                            minWidth: "min-content",
+                            textAlign: "center",
+                            overflow: "auto",
+                            whiteSpace: "nowrap",
+                            display: "inline-block",
+                        }
+                    }
+
                     return (
-                        <div className="container">
-                            <div className="panel panel-default">
+                        <div className="customizeContainer" style={{float: "left", display: "inline-block"}}>
+                            <div className="panel panel-default" style={{float: "left"}}>
                                 <div className="panel-heading">
-                                    <h4><Link to="/">Home</Link></h4>
-                                    <h3 className="panel-title">
+                                    <h4><Link to="/"><button class="btn btn-primary btn-lg" type="submit" style={{backgroundColor: "#26a69a"}}>Go Back Home</button></Link></h4>
+                                    <h3 className="panel-title" style={{color: "white", textAlign: "center", fontSize: "14pt", fontFamily: "Arial"}}>
                                         View Logo
                                     </h3>
                                 </div>
                                 <div className="panel-body">
-                                    <dl>
+                                    <dl style={{fontSize: "12pt", fontFamily: "Arial", color: "white"}}>
                                         <dt>Text:</dt>
                                         <dd>{data.logo.text}</dd>
                                         <dt>Color:</dt>
@@ -79,8 +102,8 @@ class ViewLogoScreen extends Component {
                                                         e.preventDefault();
                                                         removeLogo({ variables: { id: data.logo._id } });
                                                     }}>
-                                                    <Link to={`/edit/${data.logo._id}`} className="btn btn-success">Edit</Link>&nbsp;
-                                                <button type="submit" className="btn btn-danger">Delete</button>
+                                                    <Link to={`/edit/${data.logo._id}`} className="btn btn-success btn-lg">Edit</Link>&nbsp;
+                                                <button type="submit" className="btn btn-danger btn-lg">Delete</button>
                                                 </form>
                                                 {loading && <p>Loading...</p>}
                                                 {error && <p>Error :( Please try again</p>}
@@ -89,6 +112,9 @@ class ViewLogoScreen extends Component {
                                     </Mutation>
                                 </div>
                             </div>
+                            <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
+                            <div style={ styles.container }>{data.logo.text}</div>
+                         </div>
                         </div>
                     );
                 }}
