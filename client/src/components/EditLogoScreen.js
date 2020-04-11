@@ -62,6 +62,7 @@ class EditLogoScreen extends Component {
         borderRadius: "1pt",
         padding: "1pt",
         margin: "1pt",
+        query: true
     }
 
     updateText = (e) => {
@@ -112,19 +113,31 @@ class EditLogoScreen extends Component {
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
-
+                    if (this.state.query)
+                    {
+                        this.setState({text: data.logo.text})
+                        this.setState({color: data.logo.color})
+                        this.setState({fontSize: data.logo.fontSize})
+                        this.setState({backgroundColor: data.logo.backgroundColor})
+                        this.setState({borderWidth: data.logo.borderWidth})
+                        this.setState({borderColor: data.logo.borderColor})
+                        this.setState({borderRadius: data.logo.borderRadius})
+                        this.setState({padding: data.logo.padding})
+                        this.setState({margin: data.logo.margin})
+                        this.setState({query: false})
+                    }
                     const styles = {
                         container: {
-                            text: data.logo.text,
-                            color: data.logo.color,
-                            fontSize: data.logo.fontSize,
-                            backgroundColor: data.logo.backgroundColor,
+                            text: this.state.text,
+                            color: this.state.color,
+                            fontSize: this.state.fontSize,
+                            backgroundColor: this.state.backgroundColor,
                             borderStyle: "solid",
-                            borderWidth: data.logo.borderWidth,
-                            borderColor: data.logo.borderColor,
-                            borderRadius: data.logo.borderRadius,
-                            padding: data.logo.padding,
-                            margin: data.logo.margin,
+                            borderWidth: this.state.borderWidth,
+                            borderColor: this.state.borderColor,
+                            borderRadius: this.state.borderRadius,
+                            padding: this.state.padding,
+                            margin: this.state.margin,
                             position: "absolute",
                             width: "max-content",
                             maxWidth: "min-content",
@@ -245,7 +258,7 @@ class EditLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
-                                        <div style={ styles.container }>{data.logo.text}</div>
+                                        <div style={ styles.container }>{this.state.text}</div>
                                     </div>
                                 </div>
                                 </div>
