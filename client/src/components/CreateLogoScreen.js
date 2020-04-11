@@ -221,7 +221,7 @@ class CreateLogoScreen extends Component {
                     </div>
                     <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
                                 <div style={ styles.container }>{this.state.text}</div>
-                            </div>
+                    </div>
                     </div>
                 )}
             </Mutation>

@@ -63,7 +63,7 @@ class ViewLogoScreen extends Component {
                     }
 
                     return (
-                        <div className="customizeContainer" style={{float: "left", display: "inline-block"}}>
+                        <div className="customizeContainer" style={{float: "left", display: "inline-block", width: "274.84pt"}}>
                             <div className="panel panel-default" style={{float: "left"}}>
                                 <div className="panel-heading">
                                     <h4><Link to="/"><button class="btn btn-primary btn-lg" type="submit" style={{backgroundColor: "#26a69a"}}>Go Back Home</button></Link></h4>
