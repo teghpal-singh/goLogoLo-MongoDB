@@ -37,7 +37,7 @@ class HomeScreen extends Component {
                                         style={{ cursor: "pointer" }}>
                                         <Link to={`/view/${logo._id}`}>
                                             <div className='home_logo_link' style={ {cursor: "pointer", backgroundColor: "#26a69a", color: "white", borderStyle: "solid", borderColor: "#546e7a",
-                                            textAlign: "center", textOverflow: "ellipsis", overflow: "hidden", fontSize: "1.5rem"} }>{logo.text}</div></Link>
+                                            textAlign: "center", textOverflow: "ellipsis", overflow: "hidden", fontSize: "1.5rem"} }>{logo.text.replace(/ /g, '\xa0')}</div></Link>
                                     </div>
                                 ))}
                             </div>

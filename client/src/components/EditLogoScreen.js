@@ -258,7 +258,7 @@ class EditLogoScreen extends Component {
                                         </div>
                                     </div>
                                     <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
-                                        <div style={ styles.container }>{this.state.text}</div>
+                                        <div style={ styles.container }>{this.state.text.replace(/ /g, '\xa0')}</div>
                                     </div>
                                 </div>
                                 </div>

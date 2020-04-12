@@ -142,7 +142,7 @@ class CreateLogoScreen extends Component {
                                             <div className="col-9">
                                                 <input type="text" className="form-control form-control-lg" name="text" ref={node => {
                                                     text = node;
-                                                }} placeholder="Text" style={{width: "100%"}} onChange={this.updateText.bind(this)}/>
+                                                }} placeholder="Text" style={{width: "100%"}} onChange={this.updateText.bind(this)} required/>
                                             </div>
                                     </div>
                                     <div className="form-group row">
@@ -211,6 +211,7 @@ class CreateLogoScreen extends Component {
                                     </div>
                                     </form>
                                     <div style={{textAlign: "center"}}>
+                                        {console.log(addLogo._id)}
                                          <button type="submit" className="btn btn-primary btn-lg" style={{backgroundColor: "#26a69a"}}>SUBMIT</button>
                                     </div>
                                 </form>
@@ -220,7 +221,7 @@ class CreateLogoScreen extends Component {
                         </div>
                     </div>
                     <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
-                                <div style={ styles.container }>{this.state.text}</div>
+                                <div style={ styles.container }>{this.state.text.replace(/ /g, '\xa0')}</div>
                     </div>
                     </div>
                 )}

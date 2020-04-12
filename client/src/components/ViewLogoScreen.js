@@ -74,7 +74,7 @@ class ViewLogoScreen extends Component {
                                 <div className="panel-body">
                                     <dl style={{fontSize: "12pt", fontFamily: "Arial", color: "white"}}>
                                         <dt>Text:</dt>
-                                        <dd>{data.logo.text}</dd>
+                                        <dd>{data.logo.text.replace(/ /g, '\xa0')}</dd>
                                         <dt>Color:</dt>
                                         <dd>{data.logo.color}</dd>
                                         <dt>Font Size:</dt>
@@ -113,7 +113,7 @@ class ViewLogoScreen extends Component {
                                 </div>
                             </div>
                             <div className="col s8" style = {{overflow : "auto", float: "left", display: "contents"}}>
-                            <div style={ styles.container }>{data.logo.text}</div>
+                            <div style={ styles.container }>{data.logo.text.replace(/ /g, '\xa0')}</div>
                          </div>
                         </div>
                     );
