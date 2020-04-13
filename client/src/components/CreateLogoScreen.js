@@ -125,7 +125,6 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
-                                    console.log(text.value);
                                     addLogo({ variables: { text: text.value, color: color.value, fontSize: parseInt(fontSize.value), backgroundColor: backgroundColor.value, borderWidth: parseInt(borderWidth.value), borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value), padding: parseInt(padding.value), margin: parseInt(margin.value) } });
                                     text.value = "";
                                     color.value = "";
@@ -143,7 +142,7 @@ class CreateLogoScreen extends Component {
                                             <div className="col-9">
                                                 <input type="text" className="form-control form-control-lg" name="text" ref={node => {
                                                     text = node;
-                                                }} placeholder="Text" defaultValue="Default Logo" style={{width: "100%"}} onChange={this.updateText.bind(this)}/>
+                                                }} placeholder="Text" defaultValue="Default Logo" style={{width: "100%"}} onChange={this.updateText.bind(this)} required/>
                                             </div>
                                     </div>
                                     <div className="form-group row">
@@ -173,7 +172,7 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="borderWidth" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Border Thickness:</label>
                                         <div className="col-9">
-                                            <input type="range" className="form-control form-control-lg" name="borderWidth" min="0" ref={node => {
+                                            <input type="range" className="form-control form-control-lg" name="borderWidth" min="0" max="100" ref={node => {
                                                 borderWidth = node;
                                             }} placeholder="Border Thickness" defaultValue="1" onChange={this.updateBorderWidth.bind(this)}/>
                                         </div>
@@ -189,7 +188,7 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="borderRadius" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Border Radius:</label>
                                         <div className="col-9">
-                                            <input type="range" className="form-control form-control-lg" name="borderRadius" min="0" ref={node => {
+                                            <input type="range" className="form-control form-control-lg" name="borderRadius" min="0" max="100" ref={node => {
                                                 borderRadius = node;
                                             }} placeholder="Border Radius" defaultValue="1" onChange={this.updateBorderRadius.bind(this)}/>
                                         </div>
@@ -197,7 +196,7 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="padding" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Padding:</label>
                                         <div className="col-9">
-                                            <input type="range" className="form-control form-control-lg" name="pading" min="0" ref={node => {
+                                            <input type="range" className="form-control form-control-lg" name="pading" min="0" max="100" ref={node => {
                                                 padding = node;
                                             }} placeholder="Padding" defaultValue="1" onChange={this.updatePadding.bind(this)}/>
                                         </div>
@@ -205,7 +204,7 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group row">
                                         <label htmlFor="margin" class="col-3 col-form-label" style={{fontSize: "12pt", fontFamily: "Arial"}}>Margin:</label>
                                         <div className="col-9">
-                                            <input type="range" className="form-control form-control-lg" name="margin" min="0" ref={node => {
+                                            <input type="range" className="form-control form-control-lg" name="margin" min="0" max="100" ref={node => {
                                                 margin = node;
                                             }} placeholder="Margin" defaultValue="1" onChange={this.updateMargin.bind(this)}/>
                                         </div>

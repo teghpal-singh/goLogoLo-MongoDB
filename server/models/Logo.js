@@ -7,11 +7,11 @@ var LogoSchema = new mongoose.Schema({
   fontSize: { type: Number, min: 10, max: 100 },
   lastUpdate: { type: Date, default: Date.now },
   backgroundColor: String,
-  borderWidth: { type: Number, min: 1, max: 100 },
+  borderWidth: { type: Number, min: 0, max: 100 },
   borderColor: String,
-  borderRadius: { type: Number, min: 1, max: 100 },
-  padding: { type: Number, min: 1, max: 100 },
-  margin: { type: Number, min: 1, max: 100 },
+  borderRadius: { type: Number, min: 0, max: 100 },
+  padding: { type: Number, min: 0, max: 100 },
+  margin: { type: Number, min: 0, max: 100 },
 });
 
 module.exports = mongoose.model('Logo', LogoSchema);
